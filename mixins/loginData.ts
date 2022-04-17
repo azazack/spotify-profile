@@ -1,14 +1,18 @@
 import { Vue } from 'nuxt-property-decorator'
 
 export default class LoginData extends Vue {
-  CheckReturnedParamsFromLink(hash: string): string[] {
+  CheckReturnedParamsFromLink(hash: string): Record<string, unknown> {
     const stringAfterHashtag = hash.substring(1).split('&')
-    stringAfterHashtag.reduce((acc, currentValue): string => {
-      const [key, value] = currentValue.split('=')
-      acc[key] = value
-      return acc
-    }, {})
-    console.log(stringAfterHashtag)
-    return stringAfterHashtag
+    return stringAfterHashtag.reduce(
+      (
+        acc: Record<string, unknown>,
+        currentValue: string
+      ): Record<string, unknown> => {
+        const [key, value] = currentValue.split('=')
+        acc[key] = value
+        return acc
+      },
+      {}
+    )
   }
 }

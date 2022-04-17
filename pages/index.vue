@@ -1,12 +1,12 @@
 <template lang="pug">
-  .test tes
+
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'nuxt-property-decorator'
-
+import { Component, Vue } from 'nuxt-property-decorator'
 @Component({
-  name: 'Index',
+  name: 'Dashboard',
+  middleware: 'isLogged',
 })
-export default class Index extends Vue {}
+export default class Dashboard extends Vue {}
 </script>

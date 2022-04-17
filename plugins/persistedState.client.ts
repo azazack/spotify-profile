@@ -1,6 +1,6 @@
 import createPersistedState from 'vuex-persistedstate'
+import { Context } from '@nuxt/types'
 
-// @ts-ignore
-export default ({ store }) => {
-  createPersistedState()(store)
+export default ({ store }: Context): void => {
+  createPersistedState({ key: 'vuex', paths: ['auth'] })(store)
 }

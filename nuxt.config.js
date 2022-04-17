@@ -15,10 +15,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [{ src: '~/assets/bootstrap/myAsset.scss', lang: 'sass' }],
-
-  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  css: [{ src: '@/assets/bootstrap/myAsset.scss', lang: 'sass' }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -31,9 +28,14 @@ export default {
     '@nuxtjs/stylelint-module',
   ],
 
-  // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  plugins: [{ src: '~/plugins/persistedState.client.ts' }],
 
-  // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  // router: {
+  //   middleware: ['isLogged'],
+  // },
+
+  publicRuntimeConfig: {
+    CLIENT_ID: process.env.CLIENT_ID,
+    CLIENT_SECRET: process.env.CLIENT_SECRET,
+  },
 }

@@ -3,10 +3,9 @@ import { isEmpty } from 'lodash'
 interface State {
   data: Record<string, unknown>
 }
-
-export const getter = {
+export const getters = {
   data: (state: State): Record<string, unknown> => state.data,
-  isLogged: (state: State): boolean => !isEmpty(state.data),
+  isLogged: (state: State): boolean => !isEmpty(state.data.access_token),
 }
 
 export const state = (): State => ({

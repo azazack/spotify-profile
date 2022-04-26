@@ -13,8 +13,12 @@ import Button from '~/components/WebElement/Button.vue'
 })
 export default class Login extends Vue {
   mounted(): void {
-    console.log(this.$store.getters['auth/isLogged'])
+    console.log(
+      this.$store.getters['auth/isLogged'],
+    )
+    this.$axios.get(`https://jsonplaceholder.typicode.com/todos/1`)
   }
+
   redirection(): void {
     const scopes =
       'user-read-private user-read-email user-read-recently-played user-top-read user-follow-read user-follow-modify playlist-read-private playlist-read-collaborative playlist-modify-public'

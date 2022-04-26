@@ -11,9 +11,7 @@ import { isEmpty } from 'lodash'
 export default class CallBack extends LoginData {
   mounted(): void {
     // console.log(isEmpty(this.$store.state.auth.data.access_token), 'test')
-    if(this.$store.getters['auth/isLogged']) {
-      console.log('test')
-    }
+    this.$axios.get(`todos/1`)
 
     if (window.location.hash) {
       this.$store.commit(

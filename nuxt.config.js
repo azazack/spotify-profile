@@ -14,6 +14,8 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
+  modules: ['@nuxtjs/axios'],
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [{ src: '@/assets/bootstrap/myAsset.scss', lang: 'sass' }],
 
@@ -28,7 +30,10 @@ export default {
     '@nuxtjs/stylelint-module',
   ],
 
-  plugins: [{ src: '~/plugins/persistedState.client.ts' }],
+  plugins: [
+    { src: '~/plugins/persistedState.client.ts' },
+    { src: '~/plugins/axios.ts' },
+  ],
 
   // router: {
   //   middleware: ['isLogged'],
